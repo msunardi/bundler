@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from cause import enums
 
+
 class Cause(models.Model):
 	title = models.CharField(max_length=200)
 	created_date =models.DateTimeField(_(u'Date Established'))
