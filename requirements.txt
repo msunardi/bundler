@@ -15,3 +15,5 @@ tornado==3.2
 wsgiref==0.1.2
 wxPython-common==3.0.0.0
 South==0.8.4
+Fabric==1.9.0
+django-dynamic-fixture==1.7.0
