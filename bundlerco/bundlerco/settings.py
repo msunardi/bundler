@@ -38,6 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 	'south',
 	'cause',
+	'django_extensions',
+	'werkzeug',
+	'localflavor',
 )
 
 MIDDLEWARE_CLASSES = (
