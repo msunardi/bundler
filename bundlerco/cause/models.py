@@ -11,3 +11,6 @@ class Cause(models.Model):
 											  choices=enums.CAUSE_REGION_CHOICES)
 	deadline = models.DateTimeField(_(u'Deadline date'))
 	description = models.TextField(_(u'Description'))
+
+	def __str__(self):
+		return self.title
