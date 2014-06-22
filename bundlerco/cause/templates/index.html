@@ -53,10 +53,12 @@
 				
 
 				{{ object.description|truncatechars:50 }}
-				<a href="{% url "cause:detail" pk=object.pk %}">More detail</a>
+				<p><a href="{% url "cause:detail" pk=object.pk %}">More detail</a></p>
 			
 			<hr />
 		{% endfor %}
+		<br>
+		<a href="{% url 'cause:list' %}" title="List of all Causes">Find more</a>
 	</div>
 </div>
 {% endblock %}
