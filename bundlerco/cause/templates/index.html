@@ -1,12 +1,44 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+
+{% block style_extra %}
+	
+	/*#header-top {
+		padding-left:70px;
+	}*/
+
+	.content-cell {
+		border:1px;
+		/*border-color:#4d85d7;*/
+	}
+
+{% endblock %}
 {% block main_content %}
 				
 <div class="col-md-9">
-	<div class="header">
+	<div class="header center-block" id="header-top">
 		<h1>We is Bundler</h1>
+		
+		<a class="btn btn-lg btn-default" href="{% url "cause:create" %}">Champion a cause!</a>
 	</div>
-	Main column
+	<div class="row">
+		<div class="col-md-6 content-cell">
+			<h2>Champion a Cause</h2>
+			<hr>
+			<p>We applaud your initiative to fight for a cause that is dear to you!</p>
+			
+			<p><a href="#">How do I become a champion?</a></p>
+
+		</div>
+		<div class="col-md-6 content-cell">
+			<h2>Support a Cause</h2>
+			<hr>
+			<p>There are many causes that need your help!</p>
+
+			<p><a href="#">How do I find causes to support?</a></p>
+			<p><a href="#">How can I support a cause?</a></p>
+		</div>
+	</div>
 </div>
 {% endblock %}
 

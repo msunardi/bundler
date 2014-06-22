@@ -1,7 +1,101 @@
 {% extends "base.html" %}
 
+{% block style_extra %}
+	<style>
+		#header-top {
+			height:300px;
+			background-color:#4d85d7;
+			color:white;
+			padding-top:70px;
+		}
+		.how-topic-title {
+			text-align: center;
+		}
+		.how-topic-title a {
+			color: white;
+		}
+		.how-topic-sections {
+			padding: 10px 20px 10px 20px;
+		}
+	</style>
+{% endblock %}
+
+{% block container_top %}
+	<div id="header-top">
+		<div class="container">
+			<div class="row how-topic-title">
+				<h1>How Bundler works</h1>
+				<p><a href="#bundling" title="The bundling process">The Bundling Process</a> | <a href="#champion" title="Becoming a champion">Becoming a Champion</a> | <a href="#support" title="Supporting a cause">Supporting a Cause</a></p>
+			</div>
+
+		</div>
+	</div>
+{% endblock %}
+
 {% block main_content %}
 	<div class="col-md-12">
-		Foo
+		<div class="row">
+			<a name="bundling"></a>
+			<div class="how-topic-title"><h2>The Bundling Process</h2></div>
+			<div class="col-md-4 how-topic-sections">
+				<center><h1>1</h1></center>				
+				<p>A Cause is established.</p>				
+			</div>
+			<div class="col-md-4 how-topic-sections">
+				<center><h1>2</h1></center>
+				<p>The Champion(s) and Supporters of the Cause will promote and gain pledges for the Cause to reach its funding goals.</p>
+			</div>
+			<div class="col-md-4 how-topic-sections">
+				<center><h1>3</h1></center>
+				<p>Once the number of pleged funding goals of the Cause is reached (Bundled!), the pledge information is transferred to the affiliated Representatives to be processed.</p>
+			</div>
+		</div>
+		<center><a href="#top"><i class="glyphicon glyphicon-chevron-up">Top</i></a></center>
+		<hr>
+		<div class="row">
+			<a name="champion"></a>
+			<div class="how-topic-title"><h2>Becoming a Champion</h2></div>
+			<div class="col-md-3 how-topic-sections">
+				<center><h1>1</h1></center>
+				<div class="center-block">
+					<p>Create an account</p>
+				</div>
+			</div>
+			<div class="col-md-3 how-topic-sections">
+				<center><h1>2</h1></center>
+			</div>
+			<div class="col-md-3 how-topic-sections">
+				<center><h1>3</h1></center>
+			</div>
+			<div class="col-md-3 how-topic-sections">
+				<center><h1>4</h1></center>
+			</div>
+		</div>
+		<center><a href="#top"><i class="glyphicon glyphicon-chevron-up">Top</i></a></center>
+		<hr>
+		<div class="row">
+			<a name="support"></a>
+			<div class="how-topic-title"><h2>Supporting a Cause</h2></div>
+			<div class="col-md-4 how-topic-sections">
+				<center><h1>1</h1></center>				
+				<p>Find a Cause</p>				
+			</div>
+			<div class="col-md-4 how-topic-sections">
+				<center><h1>2</h1></center>
+				<p>Pledge to a Cause (an account is required). The funds will not be processed until the Cause is Bundled!</p>
+			</div>
+			<div class="col-md-4 how-topic-sections">
+				<center><h1>3</h1></center>
+				<p>Profit!</p>
+			</div>
+		</div>
+		<center><a href="#top"><i class="glyphicon glyphicon-chevron-up">Top</i></a></center>
+		<hr>
+		<div class="row">
+			<center><p>Most importantly ...</p>
+			<h2>Tell others of your fight!</h2>
+			</center>
+		</div>
+		<p></p>
 	</div>
 {% endblock %}

@@ -24,6 +24,15 @@
 			  /* Margin bottom by footer height */
 			  margin-bottom: 60px;
 			}
+			/* Wrapper for page content to push down footer */
+			#wrap {
+			  min-height: 100%;
+			  height: auto;
+			  /* Negative indent footer by its height */
+			  
+			  /* Pad bottom by footer height */
+			  padding: 0 0 60px;
+			}
 			#footer {
 			  position: absolute;
 			  bottom: 0;
@@ -32,10 +41,24 @@
 			  height: 60px;
 			  background-color: #f5f5f5;
 			}
+			.navbar {
+				margin-bottom: 0;
+			}
+			#header-top {
+				height: 300px;
+				background-color: #4d85d7;
+				color: white;
+				padding-top: 70px;
+				text-align: center;
+			}
+		</style>
+		<style type="text/css">
+		{% block style_extra %}{% endblock %}
 		</style>
 
 	</head>
 	<body>
+		<a name="top"></a>
 		<nav class="navbar navbar-default" role="navigation">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -45,15 +68,15 @@
 			        <span class="icon-bar"></span>
 			        <span class="icon-bar"></span>
 			      </button>
-			      <a class="navbar-brand" href="#"><img src="{% static 'B.png' %}" style="vertical-align:bottom;" height=35 />UNDLER</a>
+			      <a class="navbar-brand" href="{% url 'cause:index' %}" title="Home"><img src="{% static 'B.png' %}" style="vertical-align:bottom;" height=30 />UNDLER</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				  
 			      <ul class="nav navbar-nav">
-			        <li class="active"><a href="{% url 'cause:index' %}">Home</a></li>
-			        <li><a href="{% url 'how' %}">How Bundler Works</a></li>
-			        <li><a href="#">About Us</a></li>
-			        <li><a href="{% url 'cause:create' %}">Start a Cause</a></li>
+			        <li><a href="{% url 'cause:index' %}" title="Home">Home</a></li>
+			        <li><a href="{% url 'how' %}" title="How Bundler works">How Bundler Works</a></li>
+			        <li><a href="#" title="About Bundler">About Us</a></li>
+			        <li><a href="{% url 'cause:create' %}" title="Start a new Cause">Start a Cause</a></li>
 			        <form class="navbar-form navbar-right" role="search">
 			        <div class="form-group">			          
 			          <input type="text" class="form-control" placeholder="Search causes">
@@ -64,7 +87,7 @@
 			      </ul>
 			      
 			      <ul class="nav navbar-nav navbar-right">
-			        <li><a href="#">Login</a></li>
+			        <li><a href="#" title="Login">Login</a></li>
 			        <li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
 			          <ul class="dropdown-menu">
@@ -79,6 +102,9 @@
 			    </div><!-- /.navbar-collapse -->
 			</div>
 		</nav>
+		<div id="wrap">
+		{% block container %}
+		{% block container_top %}{% endblock %}
 		<div class="container">
 			<div class="row">
 			{% block main_content %}				
@@ -101,12 +127,16 @@
 					{% endfor %}
 				</div>
 			{% endblock %}
-			</div>
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+		{% endblock container %}
 		</div>
 
 		<div id="footer">
 			<div class="container">
+				<div class="row">
 				<p>This is footer</p>
+				</div>
 			</div>
 		</div>
 	</body>
