@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block container_top %}	
+		<div class="container">
+			<div class="row">
+				<h1>Recent Causes</h1>				
+			</div>
+
+		</div>
+	
+{% endblock %}
+
+{% block main_content %}
+
+	<div class="col-md-12">
+		{% for object in object_list %}
+			<div class="row">
+				<div class="col-md-3">
+					<h3><a href="{% url 'cause:detail' pk=object.pk %}">{{ object.title }}</a></h3>
+					Rating: <span class="badge">{{ object.rating }}</span>
+				</div>
+				<div class="col-md-2">
+					<span class="text-muted">Champion:</span> {{ object.manager }}<br />
+					<span class="text-muted">Type:</span> {{ object.get_type_display }}<br />
+					<span class="text-muted">Region:</span> {{ object.get_region_display }}<br />
+					<span class="text-muted">Status:</span> {{ object.get_status_display }}<br />
+					<span class="text-muted">Deadline:</span> {{ object.deadline }}
+				</div>
+				<div class="col-md-7">
+					{{ object.description|truncatechars:240 }}<br />
+					<a href="{% url 'cause:detail' pk=object.pk %}">More info</a>
+				</div>				
+			</div>
+			<hr />
+		{% endfor %}
+	</div>
+
+{% endblock %}
+
+{% block side_content %}{% endblock %}
