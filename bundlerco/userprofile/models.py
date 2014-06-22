@@ -16,10 +16,12 @@ class UserProfile(models.Model):
 
 	street_address = models.CharField(max_length=100, blank=True)
 	city = models.CharField(max_length=50, blank=True)
-	state = USStateField(_(u'state'),default='OR', blank=True)
-	phone_number = PhoneNumberField(_(u'phone number'), blank=True)
-	email = models.EmailField(_(u'email'), blank=True)
-	dob = models.DateField(_(u'date of birth'), blank=True, null=True)
+	state = USStateField(_(u'State'),default='OR', blank=True)
+	phone_number = PhoneNumberField(_(u'Phone number'), blank=True)
+	email = models.EmailField(_(u'Email'), blank=True)
+	dob = models.DateField(_(u'Date of birth'), blank=True, null=True)
+	bio = models.TextField(_(u'Profile'), blank=True)
+	website = models.CharField(_(u'Website'), max_length=128, blank=True, default="http://www.")
 
 	def __str__(self):
 		return "%s, %s" % (self.last_name, self.first_name)
@@ -27,4 +29,4 @@ class UserProfile(models.Model):
 class Candidates(models.Model):
 	userprofile = models.OneToOneField(UserProfile)
 	affiliation = models.CharField(max_length=50, blank=True)
-	candidate_profile = models.TextField(_(u'Candidate Profile'), blank=True)
+	
