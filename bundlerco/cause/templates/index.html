@@ -65,7 +65,8 @@
 					{% for object in object_list %}
 						<div class="row">
 							<h3>{{ object }}</h3>
-							{{ object.description }}
+							{{ object.description }}<br />
+							<a href="{% url "cause:detail" pk=object.pk %}">More detail</a>
 						</div>
 						<hr />
 					{% endfor %}
