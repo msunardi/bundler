@@ -24,7 +24,7 @@
 	<div id="header-top">
 		<div class="container">
 			<div class="row how-topic-title">
-				<h1>How Bundler works</h1>
+				<h1>How Bundler Works</h1>
 				<p><a href="#bundling" title="The bundling process">The Bundling Process</a> | <a href="#champion" title="Becoming a champion">Becoming a Champion</a> | <a href="#support" title="Supporting a cause">Supporting a Cause</a></p>
 			</div>
 
@@ -55,20 +55,19 @@
 		<div class="row">
 			<a name="champion"></a>
 			<div class="how-topic-title"><h2>Becoming a Champion</h2></div>
-			<div class="col-md-3 how-topic-sections">
+			<div class="col-md-4 how-topic-sections">
 				<center><h1>1</h1></center>
 				<div class="center-block">
 					<p>Create an account</p>
 				</div>
 			</div>
-			<div class="col-md-3 how-topic-sections">
+			<div class="col-md-4 how-topic-sections">
 				<center><h1>2</h1></center>
-			</div>
-			<div class="col-md-3 how-topic-sections">
+				<p>Create a Cause</p>
+			</div>			
+			<div class="col-md-4 how-topic-sections">
 				<center><h1>3</h1></center>
-			</div>
-			<div class="col-md-3 how-topic-sections">
-				<center><h1>4</h1></center>
+				<p><center><a class="btn btn-primary btn-lg" href="{% url 'cause:create' %}" title="Start a new Cause">Become a Champion!</a></center></p>
 			</div>
 		</div>
 		<center><a href="#top"><i class="glyphicon glyphicon-chevron-up">Top</i></a></center>
@@ -86,7 +85,7 @@
 			</div>
 			<div class="col-md-4 how-topic-sections">
 				<center><h1>3</h1></center>
-				<p>Profit!</p>
+				<p><center><a class="btn btn-primary btn-lg" href="{% url 'cause:list' %}" title="Find your cause">Find your Cause!</a></center></p>
 			</div>
 		</div>
 		<center><a href="#top"><i class="glyphicon glyphicon-chevron-up">Top</i></a></center>
@@ -94,6 +93,10 @@
 		<div class="row">
 			<center><p>Most importantly ...</p>
 			<h2>Tell others of your fight!</h2>
+			<span class='st_facebook_large' displayText='Facebook'></span>
+			<span class='st_twitter_large' displayText='Tweet'></span>
+			<span class='st_linkedin_large' displayText='LinkedIn'></span>
+			<span class='st_googleplus_large' displayText='Google +'></span>
 			</center>
 		</div>
 		<p></p>

@@ -33,7 +33,9 @@
 		<br />
 		<div class="col-md-2">
 			<!--img src="/{{ object.manager.picture }}" /-->
-			<img src="{{ MEDIA_URL }}jack_bauer.png" height=100 />
+			
+			<img src="{% static 'jack_bauer.png' %}" width=130/>
+			
 		</div>
 		<div class="col-md-10">
 			{{ object.manager.bio }}
