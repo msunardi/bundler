@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -42,6 +43,8 @@ INSTALLED_APPS = (
 	'localflavor',
 	'cause',
 	'userprofile',
+	'authtools',
+	'crispy_forms',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -86,3 +89,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+ROOT_PATH = os.path.dirname(__file__)
+#STATICFILES_DIRS =
+STATIC_ROOT = os.path.join(ROOT_PATH, 'static')
+MEDIA_ROOT = os.path.join(ROOT_PATH, 'media')
+MEDIA_URL = '/media/'
+PROFILE_IMAGES_ROOT = os.path.join(ROOT_PATH, 'profile_images')
+PROFILE_IMAGES_URL = '/profile_images/'
