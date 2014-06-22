@@ -4,23 +4,41 @@
 {% block main_content %}
 
 <div class="col-md-9">
-	<div class="header">
-		<h1>{{ object }}</h1>
-		<span class='st_facebook_large' displayText='Facebook'></span>
-		<span class='st_twitter_large' displayText='Tweet'></span>
-		<span class='st_linkedin_large' displayText='LinkedIn'></span>
-		<span class='st_googleplus_large' displayText='Google +'></span>
+	<div class="row">
+		<div class="header">
+			<h1>{{ object }}</h1>
+			<span class='st_facebook_large' displayText='Facebook'></span>
+			<span class='st_twitter_large' displayText='Tweet'></span>
+			<span class='st_linkedin_large' displayText='LinkedIn'></span>
+			<span class='st_googleplus_large' displayText='Google +'></span>
+		</div>
+		<hr>
+		<p>
+			{{ object.description }}
+		</p>
+		
+		<hr>
 	</div>
-	<hr>
-	<p>
-		{{ object.description }}
-	</p>
-	
-	<hr>
-	<p>
-		<center><a class="btn btn-primary btn-lg" href="#" title="Support this cause">Support!</a></center>
+	<div class="row">
+		<p>
+			<center><a class="btn btn-primary btn-lg" href="#" title="Support this cause">Support!</a></center>
 
-	</p>
+		</p>
+	</div>
+	<hr />
+	<div class="row">
+		<a name="bio"></a>
+		<h2>About the Champion<br />
+		<small>{{ object.manager }}</small></h2>
+		<br />
+		<div class="col-md-2">
+			<img src="/{{ object.manager.picture }}" />
+		</div>
+		<div class="col-md-10">
+			{{ object.manager.bio }}
+		</div>
+	</div>
+	
 </div>
 
 {% endblock %}
@@ -31,7 +49,7 @@
 	<p><a href="{% url 'cause:edit' pk=object.pk %}">Edit</a></p>
 	<div class="well well-sm">
 		<p>Date created: {{ object.created_date }}</p>
-		<p>Owner: {{ object.manager }}</p>
+		<p>Champion: <a href="#bio">{{ object.manager }}</a></p>
 		<p>Type: {{ object.get_type_display }}</p>
 		<p>Region: {{ object.get_region_display }}</p>	
 		<p>Deadline: {{ object.deadline }}</p>
