@@ -12,14 +12,23 @@
 		/*border-color:#4d85d7;*/
 	}
 
+	#header-top {
+		background-image:url('http://i1218.photobucket.com/albums/dd409/1JORDAN8/Logo-1.png');
+		background-size: 100%;
+		background-repeat: no-repeat;
+		background-position: center;
+		padding-top: 290px;
+		height:430px;
+	}
+
 {% endblock %}
 {% block main_content %}
 				
 <div class="col-md-9">
 	<div class="header center-block" id="header-top">
-		<h1>We is Bundler</h1>
+		<!--<h1>We is Bundler</h1>-->
 		
-		<a class="btn btn-lg btn-default" href="{% url 'how' %}">How does it work?</a>
+		<a class="btn btn-lg btn-primary" href="{% url 'how' %}">How does it work?</a>
 	</div>
 	<div class="row">
 		<div class="col-md-6 content-cell">
@@ -48,7 +57,7 @@
 	<div class="well well-md">
 		{% for object in object_list %}
 			
-				<h3>{{ object }}</h3>
+				<h3><a href="{% url "cause:detail" pk=object.pk %}">{{ object }}</a></h3>
 				<p>Champion: {{ object.manager }} <span class="badge pull-right">{{ object.rating }}</span></p>
 				
 

@@ -21,7 +21,7 @@
 	</div>
 	<div class="row">
 		<p>
-			<center><a class="btn btn-primary btn-lg" href="#" title="Support this cause">Support!</a></center>
+			<center><a class="btn btn-primary btn-lg" href="{% url 'cause:pledge' pk=object.pk %}" title="Support this cause">Support!</a></center>
 
 		</p>
 	</div>
@@ -32,7 +32,8 @@
 		<small>{{ object.manager }}</small></h2>
 		<br />
 		<div class="col-md-2">
-			<img src="/{{ object.manager.picture }}" />
+			<!--img src="/{{ object.manager.picture }}" /-->
+			<img src="{{ MEDIA_URL }}jack_bauer.png" height=100 />
 		</div>
 		<div class="col-md-10">
 			{{ object.manager.bio }}
@@ -55,6 +56,10 @@
 		<p>Deadline: {{ object.deadline }}</p>
 		<p>Rating: {{ object.rating }}</p>
 		<p>Status: {{ object.get_status_display }}</p>
+		{% if object.pledges %}
+		<p>Pledged: {{ object.pledges.count }}</p>
+		<p>Total: ${{ object.total_pledged }}</p>
+		{% endif %}
 	</div>
 	
 </div>

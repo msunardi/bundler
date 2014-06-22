@@ -1,12 +1,13 @@
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render
+from django import http
 from django.http import HttpResponseRedirect
 from django.views.generic.base import View, TemplateView
 from django.views.generic.list import ListView
 from django.views.generic import DetailView
 from django.views.generic.edit import FormView, UpdateView, CreateView, FormMixin, ProcessFormView
 
-from cause.models import Cause, CauseForm
+from cause.models import Cause, CauseForm, Pledge, PledgeForm
 
 import logging
 
@@ -99,5 +100,25 @@ class CauseCreateView(CreateView):
 
 class CauseCreateSuccessView(BaseView):
 	template_name = 'create_success.html'
+
+class PledgeView(CreateView):
+	template_name = 'pledge_form.html'
+	model = Pledge
+	form_class = PledgeForm
+	success_url = reverse_lazy("cause:create-success")
+
+	def get_context_data(self, **kwargs):
+		data = super(PledgeView, self).get_context_data(**kwargs)
+		data['cause'] = self.cause
+		return data
+
+	def get(self, request, *args, **kwargs):
+		try:
+			self.cause = Cause.objects.get(
+                pk=long(kwargs.pop('pk'))
+            )
+		except (ValueError, KeyError, Cause.DoesNotExist):
+			raise http.Http404
+		return super(PledgeView, self).get(request, *args, **kwargs)
 
 

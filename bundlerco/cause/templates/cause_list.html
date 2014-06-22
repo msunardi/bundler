@@ -17,7 +17,9 @@
 			<div class="row">
 				<div class="col-md-3">
 					<h3><a href="{% url 'cause:detail' pk=object.pk %}">{{ object.title }}</a></h3>
-					Rating: <span class="badge">{{ object.rating }}</span>
+					<p>Rating: <span class="badge">{{ object.rating }}</span></p>
+					<p>Supporters: {{ object.pledges.count }}</p>
+					<p>Total pledged: {{ object.total_pledged|default:0 }}</p>
 				</div>
 				<div class="col-md-2">
 					<span class="text-muted">Champion:</span> {{ object.manager }}<br />
