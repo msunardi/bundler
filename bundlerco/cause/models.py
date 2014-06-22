@@ -1,8 +1,8 @@
 from django.db import models
+from django.forms import ModelForm
 from django.utils.translation import ugettext_lazy as _
 from cause import enums
 from userprofile.models import UserProfile
-
 
 class Cause(models.Model):
 	title = models.CharField(max_length=200)
@@ -20,3 +20,8 @@ class Cause(models.Model):
 
 	def __str__(self):
 		return self.title
+
+class CauseForm(ModelForm):
+	class Meta:
+		model = Cause
+		localized_fields = ('created_date', 'deadline',)

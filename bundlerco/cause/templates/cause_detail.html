@@ -21,6 +21,7 @@
 {% block side_content %}
 <div class="col-md-3">
 	<h3>Details</h3>
+	<p><a href="{% url 'cause:edit' pk=object.pk %}">Edit</a></p>
 	<div class="well well-sm">
 		<p>Date created: {{ object.created_date }}</p>
 		<p>Owner: {{ object.manager }}</p>

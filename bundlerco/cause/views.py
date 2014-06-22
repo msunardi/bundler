@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.views.generic.base import View, TemplateView
 from django.views.generic.list import ListView
 from django.views.generic import DetailView
+from django.views.generic.edit import FormView, UpdateView
 
-from cause.models import Cause
+from cause.models import Cause, CauseForm
 
 import logging
 
@@ -42,3 +43,8 @@ class MainPageView(BaseListView):
 class CauseDetailView(DetailView):
 	model = Cause
 	template_name = 'cause_detail.html'
+
+class CauseEditView(UpdateView):
+	template_name = 'cause_form.html'
+	model = Cause
+	form_class = CauseForm
