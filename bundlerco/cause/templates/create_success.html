@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+	<div class="col-md-12">
+		<center><h1>CONGRATULATIONS!</h1>
+				<h3>Thank you for being the champion for the cause!</h3>
+				<p></p>
+				<p></p>
+				<a href="{% url 'cause:index' %}">Return to the home page</a> <!--| 
+				<a href="{% url 'cause:detail' pk=object.pk %}">View your cause</a>-->
+		</center>
+
+	</div>
+{% endblock %}

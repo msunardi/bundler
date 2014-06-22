@@ -6,14 +6,20 @@
 <div class="col-md-9">
 	<div class="header">
 		<h1>{{ object }}</h1>
-	</div>
-	<div class="row">
-		{{ object.description }}
+		<span class='st_facebook_large' displayText='Facebook'></span>
+		<span class='st_twitter_large' displayText='Tweet'></span>
+		<span class='st_linkedin_large' displayText='LinkedIn'></span>
+		<span class='st_googleplus_large' displayText='Google +'></span>
 	</div>
 	<hr>
-	<div class="row">
+	<p>
+		{{ object.description }}
+	</p>
+	
+	<hr>
+	<p>
 		Social networks, share this cause
-	</div>
+	</p>
 </div>
 
 {% endblock %}
@@ -31,5 +37,6 @@
 		<p>Rating: {{ object.rating }}</p>
 		<p>Status: {{ object.get_status_display }}</p>
 	</div>
+	
 </div>
 {% endblock %}

@@ -1,11 +1,20 @@
 {% extends "base.html" %}
 
+
+
 {% block main_content %}
 	<div class="col-md-12">
+	
+		<h1>{{ page_title }} Cause</h1>
+	
 		<form method="post" action="">
 			{% csrf_token %}
 			{{ form.as_p }}
-			<input class="btn btn-primary" type="submit" value="Save" />		
+			<hr>
+			<input class="btn btn-primary" type="submit" value="Save" />
+			{% if page_title == "Create" %}
+			<input class="btn btn-default" type="reset" value="Reset Form" />
+			{% endif %}	
 		</form>
 	</div>
 {% endblock %}

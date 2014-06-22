@@ -15,11 +15,14 @@
 	<h2>Popular Causes</h2>
 	<div class="well well-md">
 		{% for object in object_list %}
-			<p>
+			
 				<h3>{{ object }}</h3>
-				{{ object.description }}<br />
+				<p>Champion: {{ object.manager }} <span class="badge pull-right">{{ object.rating }}</span></p>
+				
+
+				{{ object.description|truncatechars:50 }}
 				<a href="{% url "cause:detail" pk=object.pk %}">More detail</a>
-			</p>
+			
 			<hr />
 		{% endfor %}
 	</div>

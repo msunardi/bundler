@@ -8,6 +8,32 @@
 	<head>
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+		<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "36e52ba7-fdac-40dc-92c5-9e6a58841a09", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
+		<style>
+		/* Sticky footer style http://getbootstrap.com/examples/sticky-footer-navbar/ */
+			html {
+			  position: relative;
+			  min-height: 100%;
+			}
+			body {
+			  /* Margin bottom by footer height */
+			  margin-bottom: 60px;
+			}
+			#footer {
+			  position: absolute;
+			  bottom: 0;
+			  width: 100%;
+			  /* Set the fixed height of the footer here */
+			  height: 60px;
+			  background-color: #f5f5f5;
+			}
+		</style>
+
 	</head>
 	<body>
 		<nav class="navbar navbar-default" role="navigation">
@@ -27,7 +53,7 @@
 			        <li class="active"><a href="{% url 'cause:index' %}">Home</a></li>
 			        <li><a href="#">How Bundler Works</a></li>
 			        <li><a href="#">About Us</a></li>
-			        <li><a href="#">Start a Cause</a></li>
+			        <li><a href="{% url 'cause:create' %}">Start a Cause</a></li>
 			        <form class="navbar-form navbar-right" role="search">
 			        <div class="form-group">			          
 			          <input type="text" class="form-control" placeholder="Search causes">
@@ -58,7 +84,7 @@
 			{% block main_content %}				
 				<div class="col-md-9">
 					<div class="header">
-						<h1>We is Bundler</h1>
+						{% block page_title%}<h1>We is Bundler</h1>{% endblock %}
 					</div>
 					Main column
 				</div>
@@ -75,6 +101,12 @@
 					{% endfor %}
 				</div>
 			{% endblock %}
+			</div>
+		</div>
+
+		<div id="footer">
+			<div class="container">
+				<p>This is footer</p>
 			</div>
 		</div>
 	</body>
