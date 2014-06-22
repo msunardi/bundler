@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.base import View, TemplateView
 from django.views.generic.list import ListView
+from django.views.generic import DetailView
 
 from cause.models import Cause
 
@@ -37,3 +38,7 @@ class MainPageView(BaseListView):
 	#	data = super(MainPage, self).get_context_data(**kwargs)
 	#	data['causes'] = self.causes
 	#	return data
+
+class CauseDetailView(DetailView):
+	model = Cause
+	template_name = 'cause_detail.html'
