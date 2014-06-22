@@ -24,7 +24,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				  
 			      <ul class="nav navbar-nav">
-			        <li class="active"><a href="#">Home</a></li>
+			        <li class="active"><a href="{% url 'cause:index' %}">Home</a></li>
 			        <li><a href="#">How Bundler Works</a></li>
 			        <li><a href="#">About Us</a></li>
 			        <li><a href="#">Start a Cause</a></li>
@@ -55,11 +55,11 @@
 		</nav>
 		<div class="container">
 			<div class="row">
-			{% block main_content %}
-				<div class="header">
-					<h1>We is Bundler</h1>
-				</div>
+			{% block main_content %}				
 				<div class="col-md-9">
+					<div class="header">
+						<h1>We is Bundler</h1>
+					</div>
 					Main column
 				</div>
 			{% endblock %}

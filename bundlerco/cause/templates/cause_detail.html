@@ -2,23 +2,33 @@
 {% load staticfiles %}
 
 {% block main_content %}
-<div class="header">
-	<h1>{{ object }}</h1>
-</div>
-<div class="col-md-9">
-	
-	<div class="row">
-		<p>Date created: {{ object.created_date }}</p>
-		<p>Owner: {{ object.manager }}</p>
-		<p>Type: {{ object.get_type_display }}</p>
-		<p>Region: {{ object.get_region_display }}</p>
-		<p>Rating: {{ object.rating }}</p>
-		<p>Status: {{ object.get_status_display }}</p>
-	</div>
 
+<div class="col-md-9">
+	<div class="header">
+		<h1>{{ object }}</h1>
+	</div>
 	<div class="row">
 		{{ object.description }}
 	</div>
+	<hr>
+	<div class="row">
+		Social networks, share this cause
+	</div>
 </div>
 
+{% endblock %}
+
+{% block side_content %}
+<div class="col-md-3">
+	<h3>Details</h3>
+	<div class="well well-sm">
+		<p>Date created: {{ object.created_date }}</p>
+		<p>Owner: {{ object.manager }}</p>
+		<p>Type: {{ object.get_type_display }}</p>
+		<p>Region: {{ object.get_region_display }}</p>	
+		<p>Deadline: {{ object.deadline }}</p>
+		<p>Rating: {{ object.rating }}</p>
+		<p>Status: {{ object.get_status_display }}</p>
+	</div>
+</div>
 {% endblock %}

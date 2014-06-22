@@ -1,24 +1,28 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block main_content %}
-				<div class="header">
-					<h1>We is Bundler</h1>
-				</div>
-				<div class="col-md-9">
-					Main column
-				</div>
+				
+<div class="col-md-9">
+	<div class="header">
+		<h1>We is Bundler</h1>
+	</div>
+	Main column
+</div>
 {% endblock %}
 
 {% block side_content %}
-				<div class="col-md-3">
-					{% for object in object_list %}
-						<div class="row">
-							<h3>{{ object }}</h3>
-							{{ object.description }}<br />
-							<a href="{% url "cause:detail" pk=object.pk %}">More detail</a>
-						</div>
-						<hr />
-					{% endfor %}
-				</div>
+<div class="col-md-3">
+	<h2>Popular Causes</h2>
+	<div class="well well-md">
+		{% for object in object_list %}
+			<p>
+				<h3>{{ object }}</h3>
+				{{ object.description }}<br />
+				<a href="{% url "cause:detail" pk=object.pk %}">More detail</a>
+			</p>
+			<hr />
+		{% endfor %}
+	</div>
+</div>
 {% endblock %}
 			
