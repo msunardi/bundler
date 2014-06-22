@@ -20,3 +20,11 @@ class UserProfile(models.Model):
 	phone_number = PhoneNumberField(_(u'phone number'), blank=True)
 	email = models.EmailField(_(u'email'), blank=True)
 	dob = models.DateField(_(u'date of birth'), blank=True, null=True)
+
+	def __str__(self):
+		return "%s, %s" % (self.last_name, self.first_name)
+
+class Candidates(models.Model):
+	userprofile = models.OneToOneField(UserProfile)
+	affiliation = models.CharField(max_length=50, blank=True)
+	candidate_profile = models.TextField(_(u'Candidate Profile'), blank=True)
