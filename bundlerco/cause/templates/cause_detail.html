@@ -1,15 +1,24 @@
+{% extends "base.html" %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Home Page</title>
-	<head>
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	</head>
-	<body>
-		{{ object }}
-	</body>
-</html>
+
+{% block main_content %}
+<div class="header">
+	<h1>{{ object }}</h1>
+</div>
+<div class="col-md-9">
+	
+	<div class="row">
+		<p>Date created: {{ object.created_date }}</p>
+		<p>Owner: {{ object.manager }}</p>
+		<p>Type: {{ object.get_type_display }}</p>
+		<p>Region: {{ object.get_region_display }}</p>
+		<p>Rating: {{ object.rating }}</p>
+		<p>Status: {{ object.get_status_display }}</p>
+	</div>
+
+	<div class="row">
+		{{ object.description }}
+	</div>
+</div>
+
+{% endblock %}
