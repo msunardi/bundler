@@ -24,7 +24,8 @@ class UserProfile(models.Model):
 	website = models.CharField(_(u'Website'), max_length=128, blank=True, default="http://www.")
 
 	def __str__(self):
-		return "%s, %s" % (self.last_name, self.first_name)
+		#return "%s, %s" % (self.last_name, self.first_name)
+		return " ".join([self.first_name, self.last_name])
 
 class Candidates(models.Model):
 	userprofile = models.OneToOneField(UserProfile)

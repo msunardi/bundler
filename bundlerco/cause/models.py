@@ -1,8 +1,10 @@
 from django.db import models
+from django.db.models import Sum
 from django.forms import ModelForm
 from django.utils.translation import ugettext_lazy as _
 from cause import enums
 from userprofile.models import UserProfile
+
 
 import datetime as dt
 from dateutil.relativedelta import relativedelta
@@ -25,6 +27,11 @@ class Cause(models.Model):
 	def __str__(self):
 		return self.title
 
+	@property
+	def total_pledged(self):
+		pledges = Pledge.objects.filter(cause=self).aggregate(Sum('amount'))
+		return pledges['amount__sum']
+
 class CauseForm(ModelForm):
 	class Meta:
 		model = Cause
@@ -32,7 +39,7 @@ class CauseForm(ModelForm):
 
 class Pledge(models.Model):
 	userprofile = models.ForeignKey(UserProfile)
-	cause = models.ForeignKey(Cause)
+	cause = models.ForeignKey(Cause, related_name='pledges')
 	amount = models.DecimalField(max_digits=6, decimal_places=2, default=0.00)
 	payment_method = models.PositiveSmallIntegerField(_(u'Payment method'),
 													  choices=enums.PLEDGE_PAYMENT_CHOICES,
@@ -41,3 +48,8 @@ class Pledge(models.Model):
 	processed = models.PositiveSmallIntegerField(_(u'Status'),
 												 choices=enums.PLEDGE_STATUS_CHOICES,
 												 default=enums.PLEDGE_STATUS_PENDING)
+
+class PledgeForm(ModelForm):
+	class Meta:
+		model = Pledge
+		fields = ['userprofile', 'cause', 'amount', 'payment_method']
